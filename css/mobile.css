@@ -1,0 +1,271 @@
+@import url(https://fonts.googleapis.com/css?family=Lato);
+@import url(https://fonts.googleapis.com/css?family=Contrail+One);
+
+.horizontal-align {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.vertical-align {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+body {
+  background-color: #b6c5e0;
+}
+
+#application-window {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  width: 330px;
+  /* height depends on number of followed channels */
+  min-height: 110px;
+  background-color: white;
+  border: #100a04 solid 1px;
+}
+
+.app-buttonpane {
+  /* fills button pane with buttons */
+  display: table-row;
+}
+
+.app-buttonpane > button {
+  border: none;
+  /* additional line for separating button pane from rest of application  */
+  border-bottom: #100a04 solid 1px;
+  height: 30px;
+  width: 110px;
+  background-color: #0e3c0c;
+  /* fill button pane with the buttons */
+  display: table-cell;
+  color: white;
+  font-size: 22px;
+  font-family: 'Contrail One', Helvetica;
+  padding-top: 1px;
+}
+
+/* removes push effect on button */
+
+.app-buttonpane > button:focus, .app-buttonpane > button:active {
+  padding-right: 0px;
+  padding-left: 0px;
+  /* removes fat border on focus in chrome */
+  outline: 0;
+  background-color: #186615 !important;
+}
+
+/* vertical borders for separation of buttons */
+
+.app-buttonpane > button:nth-child(1),
+.app-buttonpane > button:nth-child(2) {
+  border-right: #100a04 solid 1px;
+}
+
+/* button has a lighter color when it is active / has a focus */
+
+.button-selected {
+  background-color: #186615 !important;
+}
+
+/* search field for names and statuses */
+
+input[name=search-field] {
+  /* display as block element (input fields are naturally inline-display elements ), so we can center it */
+  display: block;
+  width: 200px;
+  height: 27.5px;
+  margin-top: 22.5px;
+  background-color: white;
+  border: #CCCCCC solid 1.5px;
+  border-radius: 5px 5px;
+  padding-left: 28.75px;
+}
+
+input[name=search-field]:focus {
+  /* removes fat border on focus in chrome */
+  outline: 0;
+  box-shadow: 0px 0px 12.5px 0.5px #b6c5e0;
+  border: #1d2c45 solid 1px;
+}
+
+.icon-search {
+  position: relative;
+  bottom: 26px;
+  left: 57px;
+  color: #878787;
+}
+
+/* style the placeholder in 1) Mozilla Firefox 19+ and 2) Safari, Google Chrome, Opera 15+ and Microsoft Edge ^-^ */
+
+::-moz-placeholder {
+  font-size: 15px;
+  font-family: 'Lato', sans-serif;
+}
+
+::-webkit-input-placeholder {
+  font-family: 'Lato', sans-serif;
+  font-size: 13px;
+}
+
+.search-div {
+  height: 90px;
+}
+
+.content {
+  /* separates the content from the search div, only visible when content is shown */
+  border-top: #100a04 solid 0px;
+}
+
+.streamer-entry {
+  /* every streamer has his own space */
+  height: 95px;
+}
+
+/* profile icons */
+
+.streamericon {
+  border-radius: 45%;
+  margin-top: 15.5px;
+  margin-left: 13px;
+  border: #100a04 solid 1px;
+}
+
+.streamer-entry:nth-child(odd) {
+  background-color: #FFFDD0;
+}
+
+.streamer-entry:nth-child(even) {
+  background-color: #FFEDD0;
+}
+
+.streamername {
+  font-family: 'Contrail One', Arial;
+  margin-left: 90px;
+  margin-top: -92.5px;
+  font-size: 15px;
+  /* a elements are naturally inline */
+  display: block;
+  /* cursor changes to pointer only on hovering over the actual characters of the name */
+  width: 0px;
+  /* no line breaks between white spaces */
+  white-space: nowrap;
+  /* removes link color */
+  color: black;
+}
+
+.streamerstatus {
+  font-family: 'Lato', Helvetica, sans-serif;
+  font-style: italic;
+  font-size: 13px;
+  margin-left: 90px;
+  margin-top: 0px;
+  margin-right: 20px;
+  color: #878787;
+  /* status on one line */
+  white-space: nowrap;
+  /* limit for the status */
+  width: 145px;
+  /* minimum height for empty status */
+  height: 20px;
+  cursor: default;
+}
+
+.black-ellipsis {
+  color: black;
+  font-weight: bold;
+}
+
+/* show online/offline status */
+
+.status-icon {
+  float: right;
+  margin-right: 35px;
+  margin-top: -5px;
+  cursor: default;
+}
+
+.online-icon {
+  color: green;
+}
+
+.offline-icon {
+  color: red;
+}
+
+/* number of viewers for a channel */
+
+.channel-viewers {
+  float: right;
+  margin-top: 17.25px;
+  margin-right: -43.75px;
+  font-family: 'Lato', Helvetica, sans-serif;
+  font-size: 15px;
+  text-align: center;
+  width: 85px;
+}
+
+/* custom link styling */
+
+a {
+  text-decoration: none;
+}
+
+a:focus,
+a:active {
+  outline: 0;
+  color: #00003e;
+  font-weight: normal;
+}
+
+/* cursors */
+
+.pointer-cursor {
+  cursor: pointer !important;
+}
+
+.information-cursor {
+  cursor: help;
+}
+
+.loading-info {
+  font-family: 'Lato', Helvetica, sans-serif;
+  font-size: 15px;
+  text-align: center;
+  display: inline-block;
+  position: relative;
+  bottom: 10.5px;
+  width: 330px;
+}
+
+.warning-info {
+  color: #b20000;
+  text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);
+}
+
+.check-mark {
+  position: relative;
+  top: 23.75px;
+  left: 202.5px;
+}
+
+.move-left {
+  left: -20px;
+}
+
+/* shows waiting animation while loading channel info */
+
+.wait-cursor {
+  cursor: wait !important;
+}
+
+/* disables interaction with html elements while loading channel info */
+
+.wait-cursor > * {
+  pointer-events: none;
+}
+
+.no-interaction {
+  pointer-events: none;
+}

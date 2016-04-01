@@ -1,0 +1,141 @@
+@import url(https://fonts.googleapis.com/css?family=Contrail+One);
+@import url(http://fonts.googleapis.com/css?family=Roboto:400);
+.horizontal-align {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+body {
+  background-color: #b6c5e0;
+  font-family: 'Contrail One', Arial, sans-serif;
+  font-size: 14px;
+  color: #333333;
+}
+
+.welcome-screen {
+  width: 260px;
+  height: 275px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  border: #100a04 solid 1px;
+  border-radius: 15px 15px;
+  background-color: #FFEDD0;
+}
+
+.header-div {
+  height: 85px;
+  border-bottom: inherit;
+  border-radius: 15px 15px 0px 0px;
+  background-color: #FFFDD0;
+}
+
+h1 {
+  font-size: 1.27em;
+  margin: 0;
+  text-align: center;
+}
+
+.twitch-icon {
+  color: #6441A5;
+  margin-top: 37.5px;
+  margin-left: 10px;
+}
+
+.bubble-icon {
+  color: #4150a5;
+  position: relative;
+  bottom: 30px;
+}
+
+.info-icon {
+  color: #4150a5;
+  position: relative;
+  bottom: 37px;
+  right: 28.5px;
+}
+
+.header-text {
+  font-weight: normal;
+  font-size: 25px;
+  position: relative;
+  right: 18.75px;
+  bottom: 2px;
+}
+
+.intro-text {
+  font-family: 'Roboto', Helvetica, sans-serif;
+  text-align: center;
+  letter-spacing: 0.01em;
+  margin: 15px 10px 20px 10px;
+  /* slighty darker text */
+  color: #141414;
+}
+
+input[id=username] {
+  display: block;
+  height: 27.5px;
+  width: 187.5px;
+  border: #100a04 solid 1px;
+  border-radius: 7.5px;
+  padding: 0px 0px 0px 30px;
+  font-family: 'Contrail One', Arial, sans-serif;
+  font-size: 15px;
+}
+
+.twitch-icon-small {
+  position: relative;
+  bottom: 24px;
+  left: 27.5px;
+}
+
+.warning-icon {
+  position: relative;
+  bottom: 24px;
+  left: 29px;
+  color: #b20000;
+}
+
+.send-username-button {
+  border: #092708 outset 3px;
+  border-top: none;
+  border-left: none;
+  border-radius: 5px;
+  font-size: 20px;
+  color: white;
+  background-color: #186615;
+  height: 27.5px;
+  width: 70px;
+  padding-right: 30px;
+  padding-top: 5px;
+  padding-left: 5px;
+  font-family: 'Contrail One', "Times New Roman";
+  text-align: center;
+  letter-spacing: 0.01em;
+}
+
+.send-username-button:hover {
+  cursor: pointer;
+  background-color: #27a522;
+}
+
+.send-username-button:active {
+  border: #acacac solid 2px;
+  border-bottom: none;
+  border-right: none;
+}
+
+.get-info-icon {
+  position: relative;
+  top: -26px;
+  left: 50px;
+  color: white;
+}
