@@ -89,19 +89,16 @@ $("input[type=text]").focusout(function() {
 
 /* allows searching for usernames just by starting to type by setting focus*/
 window.onkeydown = function(event) {
-
   // do not focus if someone is navigating with tab, space, enter
   if (event.keyCode !== 9 && event.keyCode !== 13 && event.keyCode !== 32 && !$("input[name=search-field]").hasClass("no-interaction")) {
-
     $("input[name=search-field]").focus();
     removeLoadingInfo();
   }
 };
 
 window.onkeyup = function(event) {
-
   if (event.keyCode !== 9 && event.keyCode !== 13 && event.keyCode !== 32 && !$("input[name=search-field]").hasClass("no-interaction")) {
-
+    
     var searchvalue = $("input[name=search-field]").val().toLowerCase();
 
     // execute search on all channels
@@ -118,7 +115,6 @@ window.onkeyup = function(event) {
       return filteredStreamers;
     });
   }
-
 };
 
 /* logging */
@@ -138,7 +134,6 @@ function setStartLoadingInfo() {
 };
 
 function setLoadingInfoComplete() {
-
   if (getNumberDivs() > 0) {
     $(".loading-info").text(getNumberDivs() + " channels loaded.").addClass("move-left");
     $(".check-mark").addClass(" fa-check-circle-o");
@@ -146,7 +141,6 @@ function setLoadingInfoComplete() {
 };
 
 function setOnlineInfo() {
-
   var nDivs = getNumberDivs();
   if (nDivs === 1) {
     $(".loading-info").text(nDivs + " channel is online.");
@@ -156,7 +150,6 @@ function setOnlineInfo() {
 };
 
 function setOfflineInfo() {
-
   var nDivs = getNumberDivs();
   if (nDivs === 1) {
     $(".loading-info").text(nDivs + " channel is offline.");
@@ -166,7 +159,6 @@ function setOfflineInfo() {
 };
 
 function setSearchInfo() {
-
   var nDivs = getNumberDivs();
   if (nDivs === 1) {
     $(".loading-info").text(nDivs + " channel found.");
@@ -342,7 +334,6 @@ function streamer(name, status, iconurl, profileurl, userappid) {
 /* bootstrap */
 
 $(document).ready(function() {
-
   useraccount = getUrlVars()["twitchuser"];
 
   // parameter given
@@ -379,7 +370,6 @@ function getAllChannels(limit, callback) {
     dataType: "jsonp",
     jsonp: "jsonp",
     success: function(data) {
-
       if (data.error === "Not Found") {
         showUserNotFoundInfo();
         removeWaitCursor();
@@ -391,7 +381,6 @@ function getAllChannels(limit, callback) {
         disableInteraction();
         deactivateUpdates();
       } else {
-
         //set number of total channels user is following
         channelsToFetch = data._total;
 
@@ -418,18 +407,15 @@ function getAllChannels(limit, callback) {
           }
 
           var profileurl = channel.url;
-
           channels.push(new streamer(streamername, streamerstatus, streamericon, profileurl, userentryid));
           userentryid++;
         }); // for each end
-
         removeWaitCursor();
 
         if (callback) {
           getStatus(callback);
         }
       }
-
     }
   });
 };
@@ -457,7 +443,6 @@ function getStatus(callback) {
       user.streams = true;
       user.viewers = channel.viewers;
       user.game = channel.game;
-
     });
     removeWaitCursor();
     callback();
@@ -475,7 +460,6 @@ function showChannels(callback) {
   clearContentDiv();
 
   for (var user of channels) {
-
     // adds a new div for every streamer in the application window
     $(".content").append("<div class='streamer-entry' id='entryid" + user.userappid + "'></div>");
 
@@ -487,9 +471,7 @@ function showChannels(callback) {
 
     // adds a tooltip and black ellipsis if status is too long
     if (isEllipsisActive($(statusobj))) {
-
       var clippedStatus = $(statusobj).text();
-
       var maxWidth;
 
       if ($(".streamerstatus").css("width") === "210px") {
@@ -510,7 +492,6 @@ function showChannels(callback) {
         // puts the truncated status in the div, so we can read its width once again 
         $(statusobj).html(clippedStatus);
         statusobj = "#entryid" + user.userappid + " .streamerstatus";
-
       }
 
       // puts the ellipsis in a span, so we can style it
@@ -519,9 +500,7 @@ function showChannels(callback) {
 
       // adds the tooltip with the original status
       $(statusobj).attr("title", user.status).addClass("information-cursor");
-
     }
-
   } // for loop end
 
   $(".streamer-entry").append("<i class='fa fa-lg status-icon'></i>");
@@ -541,17 +520,16 @@ function showChannels(callback) {
     addOfflineStatusInfo();
     setLoadingInfoComplete();
   }
-
+	
   removeWaitCursor();
-
 };
 
 /* change status length on browser window resizing */
 $(window).resize(function() {
-	if($(window).width() < 530) {
-		$(".streamerstatus").css("text-overflow", "ellipsis");
-		$(".streamerstatus").css("overflow", "hidden");
-	} else {
-		$(".streamerstatus").css("overflow", "visible");
-	}
+    if($(window).width() < 530) {
+	$(".streamerstatus").css("text-overflow", "ellipsis");
+	$(".streamerstatus").css("overflow", "hidden");
+    } else {
+	$(".streamerstatus").css("overflow", "visible");
+    }
 });
