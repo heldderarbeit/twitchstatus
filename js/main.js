@@ -306,9 +306,10 @@ var channels = [];
 var channelsToFetch;
 
 var twitchbaseurl = "https://api.twitch.tv/kraken";
+var streamurl = twitchbaseurl + "/streams?channel=";
+var clientauthString = "client_id=i4kp93thmeq92p7v9h52kgmq91o8cj";
 var jsonpString = "callback=?";
 var defaultprofileimageurl = "http://static-cdn.jtvnw.net/jtv_user_pictures/xarth/404_user_600x600.png";
-var streamurl = "https://api.twitch.tv/kraken/streams?channel=";
 
 // limit of channels to get
 var limitchannels = 150;
@@ -366,7 +367,8 @@ function getAllChannels(limit, callback) {
   userentryid = 1;
 
   $.ajax({
-    url: followingurl + "?" + "limit=" + limit + "&" + jsonpString,
+    type: "GET",
+    url: followingurl + "?" + clientauthString + "&" + "limit=" + limit + "&" + jsonpString,
     dataType: "jsonp",
     jsonp: "jsonp",
     success: function(data) {
@@ -428,6 +430,7 @@ function getStatus(callback) {
   }
 
   streamurl = streamurl.slice(0, -1);
+  streamurl += "&" + clientauthString;
   streamurl += "&" + jsonpString;
 
   $.getJSON(streamurl, function(response) {
